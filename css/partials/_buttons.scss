@@ -1,0 +1,147 @@
+button {
+    position: relative;
+    --stroke-width: 0.2em;
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --text-shadow-size: 0.2em;
+    --text-shadow-color: rgba(0, 0, 0, 0.5);
+
+    font-size: 1rem;
+    font-weight: 800;
+    font-style: italic;
+    border-radius: 0.75em;
+    letter-spacing: 1.5px;
+    padding: 0.333em 0.666em ;
+    border: 0.2em solid black;
+    box-shadow: 0 0.2em 0 rgba(0, 0, 0, 0.3),
+    0 -4px 0 inset rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5em;
+
+    -webkit-text-stroke: var(--stroke-width) var(--stroke-color);
+    paint-order: stroke fill;
+    text-shadow: 0 var(--text-shadow-size) 2px var(--text-shadow-color);
+
+    background-color: var(--color-orange);
+
+    transform: none;
+    transition: all var(--transition);
+}
+
+button span {
+    color: currentColor;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+button:before,
+button:after {
+    content: " ";
+    position: absolute;
+    inset: 0;
+    opacity: 0.2;
+    mix-blend-mode: overlay;
+}
+
+button:after {
+    background: linear-gradient(180deg, white 20%, black 80%);
+}
+
+button:before {
+    opacity: 0;
+    background: white;
+    transition: opacity var(--transition-duration);
+}
+
+button:active::before {
+    opacity: 0.666;
+}
+
+button:focus-visible,
+button:hover {
+    background-color: var(--color-blue);
+}
+
+
+button:focus,
+button:focus-visible {
+    outline: none;
+}
+
+button:active {
+    transform: scale(0.975);
+}
+
+button.text {
+    font-size: 1rem;
+    font-weight: 700;
+    font-style: normal;
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: var(--color-grey-1);
+}
+
+button.text:focus-visible,
+button.text:hover {
+    color: var(--color-blue);
+}
+
+button.text:before,
+button.text:after {
+    display: none;
+}
+
+button.small {
+    font-size: 0.5rem;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.5px;
+    background: none;
+    padding: 0.5em 1em;
+    gap: 0.666em;
+
+    &:active {
+        transform: scale(0.925);
+    }
+}
+
+button.red {
+    background-color: var(--color-red);
+}
+
+button.red:focus-visible,
+button.red:hover {
+    background-color: var(--color-red-dark);
+}
+
+.buttons {
+    background-color: rgba(var(--color-grey-3-rgb), 0.75);
+    border-radius: 0.25rem;
+}
+
+
+button .label {
+    flex-grow: 1;
+}
+
+button .icon {
+    max-height: 2em;
+    width: auto;
+}
+
+button:not(.small) .icon {
+    margin-right: -1.166em;
+}
+
+button:not(.small) .icon::before {
+    content: " ";
+    position: absolute;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+}

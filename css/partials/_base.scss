@@ -1,0 +1,65 @@
+:root {
+    --font-family: 'Inter', system-ui, sans-serif;
+    --transition-duration: 133ms;
+    --ease-out-quart: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition: var(--transition-duration) var(--ease-out-back);
+
+    --color-orange: #FAB005;
+    --color-yellow: #FFD43B;
+    --color-blue: #A5D8FF;
+    --color-blue-light: #D0EBFF;
+    --color-red: #F03E3E;
+    --color-red-light: #FA5252;
+    --color-red-dark: #C92A2A;
+    --color-green: #94D82D;
+    --color-grey-1: #DEE2E6;
+    --color-grey-2: #868E96;
+    --color-grey-3: #212529;
+    --color-grey-3-rgb: 33,
+        37,
+        41;
+}
+
+@supports (font-variation-settings: normal) {
+    :root {
+        --font-family: "InterVariable", system-ui, sans-serif;
+        font-optical-sizing: auto;
+    }
+}
+
+* {
+    font-family: var(--font-family);
+    color: white;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: black;
+    font-size: var(--font-size);
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 768px) {
+    :root {
+        --margin: 10px;
+        --font-size: 24px;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    :root {
+        --margin: 30px;
+        --font-size: 24px;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    :root {
+        --margin: 60px;
+        --font-size: 32px;
+    }
+}

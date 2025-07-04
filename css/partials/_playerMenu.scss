@@ -1,0 +1,11 @@
+#player-menu {
+    display: flex;
+    flex-direction: column;
+    width: 14rem;
+    position: absolute;
+    gap: 30px;
+    left: var(--margin);
+    bottom: var(--margin);;
+    height: 100%;
+    justify-content: center;
+}

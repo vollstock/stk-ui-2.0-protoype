@@ -1,0 +1,13 @@
+#bottom-bar {
+    position: absolute;
+    bottom: var(--margin);
+    left: var(--margin);
+    right: var(--margin);
+
+    display: flex;
+    justify-content: space-between;
+
+    .buttons {
+        display: flex;
+    }
+}

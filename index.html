@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperTuxKart UI Prototype</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div id="screen"></div>
+
+    <audio id="music" loop></audio>
+
+    <template id="desktop-template">
+        <div id="desktop">
+            <div class="system-bar">20:04:31</div>
+            <div class="app-icon"></div>
+            <div class="notes">
+                <p>Double-click the icon above to start.</p>
+                <table>
+                    <tr>
+                        <td><span class="key">M</span></td>
+                        <td>Toggle music</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">R</span></td>
+                        <td>Reload current screen</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">1</span></td>
+                        <td>Load title screen</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">2</span></td>
+                        <td>Load main menu</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">Esc</span></td>
+                        <td>Quit</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <script>
+            Desktop.init();
+        </script>
+    </template>
+
+
+    <template id="title-screen-template">
+        <div id="title-screen">
+            <img class="background" src="img/Title Screen Background.jpg">
+
+            <img class="logo" src="img/logo.png" alt="SuperTuxKart">
+
+            <div>
+                <div class="loading">
+                    <div class="progress">
+                        <div class="slider"></div>
+                    </div>
+                    <div class="label">Loading</div>
+                </div>
+
+                <button class="start-button text" data-success-sound="true" onclick="App.load('#main-menu-template')">
+                    Press button to start
+                </button>
+            </div>
+
+            <script>
+                TitleScreen.init();
+            </script>
+        </div>
+    </template>
+
+    <template id="main-menu-template">
+        <div id="main-menu">
+            <img class="background" src="img/Player Menu Background.jpg">
+
+            <menu id="player-menu">
+                <button>
+                    <img class="icon" src="img/icons/menu_race.png" alt="">
+                    <span class="label">Single Player</span>
+                </button>
+                <button>
+                    <img class="icon" src="img/icons/menu_multi.png" alt="">
+                    <span class="label">Multiplayer</span>
+                </button>
+                <button>
+                    <img class="icon" src="img/icons/menu_online.png" alt="">
+                    <span class="label">Online</span>
+                </button>
+            </menu>
+
+            <menu id="bottom-bar">
+                <button class="small red" data-error-sound="true"
+                    onclick="App.quit()">
+                    <span class="label">Quit</span>
+                    <span class="key">Esc</span>
+                    <!-- <span class="key round">A</span> -->
+                </button>
+
+                <div class="buttons">
+                    <button class="text small">
+                        <img class="icon" src="img/icons/main_help.png" alt="">
+                        <span class="label">Help</span>
+                    </button>
+                    <button class="text small">
+                        <img class="icon" src="img/icons/main_options.png" alt="">
+                        <span class="label">Settings</span>
+                    </button>
+                    <button class="text small">
+                        <img class="icon" src="img/icons/crown.png" alt="">
+                        <span class="label">Highscores</span>
+                    </button>
+                    <button class="text small">
+                        <img class="icon" src="img/icons/addons.png" alt="">
+                        <span class="label">Addons</span>
+                    </button>
+                </div>
+            </menu>
+        </div>
+
+        <script>
+            MainMenu.init();
+        </script>
+    </template>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

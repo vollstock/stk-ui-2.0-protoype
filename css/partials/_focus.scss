@@ -1,0 +1,74 @@
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.02);
+    }
+}
+
+#focus {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+    transition: opacity var(--transition-duration);
+
+    --corner-size: 1rem;
+    --corner-offset: -0.5rem;
+
+    &.active {
+        opacity: 1;
+    }
+
+    .corner {
+        position: absolute;
+        width: var(--corner-size);
+        height: var(--corner-size);
+        background-image: url(../img/focus-corner.svg);
+        background-repeat: no-repeat;
+
+        // transition: width var(--transition),
+        //     height var(--transition);
+    }
+
+    &.small .corner {
+        --corner-size: 0.666rem;
+        --corner-offset: -0.333rem;
+    }
+
+    &.text.small .corner {
+        --corner-size: 0.5rem;
+        --corner-offset: -0.125rem;
+    }
+
+    .corner:nth-child(1) {
+        left: var(--corner-offset);
+        top: var(--corner-offset);
+        top: var(--corner-offset);
+    }
+
+    .corner:nth-child(2) {
+        transform: rotate(90deg);
+        top: var(--corner-offset);
+        right: var(--corner-offset);
+    }
+
+    .corner:nth-child(3) {
+        transform: rotate(270deg);
+        left: var(--corner-offset);
+        bottom: var(--corner-offset);
+    }
+
+    .corner:nth-child(4) {
+        transform: rotate(180deg);
+        right: var(--corner-offset);
+        bottom: var(--corner-offset);
+    }
+
+}

@@ -1,0 +1,23 @@
+{
+  "name": "supertuxkart-ui-prototype",
+  "version": "2.0.0",
+  "description": "A click dummy to evaluate a new UI for SuperTuxKart 2.0",
+  "scripts": {
+    "css": "sass css/styles.scss:css/styles.css --style compressed",
+    "watch-css": "sass --watch css/styles.scss:css/styles.css --style compressed",
+    "watch-js": "onchange --initial './js/**/*' --exclude './js/main.*' -- npm run bundle-js",
+    "bundle-js": "bundle-js ./js/index.js --out ./js/main.js -p && npm run uglify-js",
+    "uglify-js": "uglifyjs ./js/main.js --output ./js/main.min.js",
+    "start": "concurrently \"npm run watch-css\" \"npm run watch-js\""
+  },
+  "author": "Tooloop Multimedia",
+  "license": "CC0-1.0",
+  "dependencies": {
+    "bundle-js": "^1.0.3",
+    "concurrently": "^9.0.1",
+    "gsap": "^3.13.0",
+    "onchange": "^7.1.0",
+    "pdfjs-dist": "^4.6.82",
+    "uglify-js": "^3.19.3"
+  }
+}
