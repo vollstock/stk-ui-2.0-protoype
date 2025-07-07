@@ -10,12 +10,12 @@ button {
     font-style: italic;
     border-radius: 0.75em;
     letter-spacing: 1.5px;
-    padding: 0.333em 0.666em ;
+    padding: 0.333em 0.666em;
     border: 0.2em solid black;
     box-shadow: 0 0.2em 0 rgba(0, 0, 0, 0.3),
-    0 -4px 0 inset rgba(0, 0, 0, 0.2);
+        0 -4px 0 inset rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -82,7 +82,8 @@ button.text {
     font-style: normal;
     background: none;
     border: none;
-    box-shadow: none;
+    background-color: transparent !important;
+    box-shadow: none !important;
     color: var(--color-grey-1);
 }
 
@@ -104,14 +105,21 @@ button.small {
     background: none;
     padding: 0.5em 1em;
     gap: 0.666em;
+    box-shadow: 0 0.2em 0 rgba(0, 0, 0, 0.3),
+        0 -2px 0 inset rgba(0, 0, 0, 0.2);
 
     &:active {
         transform: scale(0.925);
     }
+    background-color: var(--color-grey-3);
 }
 
 button.red {
     background-color: var(--color-red);
+}
+
+button.green {
+    background-color: var(--color-green);
 }
 
 button.red:focus-visible,

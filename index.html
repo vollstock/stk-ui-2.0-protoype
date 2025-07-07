@@ -31,15 +31,19 @@
                     </tr>
                     <tr>
                         <td><span class="key">1</span></td>
-                        <td>Load title screen</td>
+                        <td>Title screen</td>
                     </tr>
                     <tr>
                         <td><span class="key">2</span></td>
-                        <td>Load main menu</td>
+                        <td>Main menu</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">3</span></td>
+                        <td>Game mode screen</td>
                     </tr>
                     <tr>
                         <td><span class="key">Esc</span></td>
-                        <td>Quit</td>
+                        <td>Quit (Desktop)</td>
                     </tr>
                 </table>
             </div>
@@ -81,7 +85,7 @@
             <img class="background" src="img/Player Menu Background.jpg">
 
             <menu id="player-menu">
-                <button>
+                <button onclick="App.load('#game-mode-screen-template')" data-success-sound="true">
                     <img class="icon" src="img/icons/menu_race.png" alt="">
                     <span class="label">Single Player</span>
                 </button>
@@ -96,8 +100,8 @@
             </menu>
 
             <menu id="bottom-bar">
-                <button class="small red" data-error-sound="true"
-                    onclick="App.quit()">
+                <button class="small red" data-error-sound="true" onclick="App.quit()">
+                    <!-- <img class="icon" src="img/icons/main_quit.png" alt=""> -->
                     <span class="label">Quit</span>
                     <span class="key">Esc</span>
                     <!-- <span class="key round">A</span> -->
@@ -109,12 +113,12 @@
                         <span class="label">Help</span>
                     </button>
                     <button class="text small">
-                        <img class="icon" src="img/icons/main_options.png" alt="">
-                        <span class="label">Settings</span>
-                    </button>
-                    <button class="text small">
                         <img class="icon" src="img/icons/crown.png" alt="">
                         <span class="label">Highscores</span>
+                    </button>
+                    <button class="text small">
+                        <img class="icon" src="img/icons/main_options.png" alt="">
+                        <span class="label">Settings</span>
                     </button>
                     <button class="text small">
                         <img class="icon" src="img/icons/addons.png" alt="">
@@ -126,6 +130,41 @@
 
         <script>
             MainMenu.init();
+        </script>
+    </template>
+
+    <template id="game-mode-screen-template">
+        <div id="game-mode-screen" class="screen">
+            <img class="background" src="img/Menu Background UI.jpg">
+            <h1 class="title">Chose a game</h1>
+
+            <menu id="game-mode-menu">
+                <button data-game-mode="story">Story</button>
+                <button data-game-mode="grandPrix">Grand Prix</button>
+                <button data-game-mode="singelRace">Single Race</button>
+                <button data-game-mode="battle">Battle</button>
+                <button data-game-mode="football">Football</button>
+                <button data-game-mode="followTheLeader">Follow the leader</button>
+                <button data-game-mode="eggHunt">Egg Hunt</button>
+                <button data-game-mode="ghostChase">Ghost chase</button>
+                <button data-game-mode="timeTrial">Time Trial</button>
+                <button data-game-mode="lapTrial">Lap Trial</button>
+            </menu>
+
+            <menu id="bottom-bar">
+                <button class="small" onclick="App.load('#main-menu-template')" data-cancel-sound="true">
+                    <span class="label">Back</span>
+                    <span class="key round">B</span>
+                </button>
+
+                <button class="small green" data-success-sound="true">
+                    <span class="key round">A</span>
+                    <span class="label">Next</span>
+                </button>
+            </menu>
+        </div>
+        <script>
+            GameModeScreen.init();
         </script>
     </template>
 

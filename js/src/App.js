@@ -15,6 +15,7 @@ var App = (function () {
             hoverSound: "audio/kenney_interface-sounds/Audio/bong_001.ogg",
             clickSound: "audio/kenney_interface-sounds/Audio/click_002.ogg",
             successSound: "audio/kenney_interface-sounds/Audio/confirmation_001.ogg",
+            cancelSound: "audio/kenney_interface-sounds/Audio/drop_004.ogg",
             errorSound: "audio/kenney_interface-sounds/Audio/minimize_006.ogg"
         }
     }
@@ -75,6 +76,7 @@ var App = (function () {
                 if (event.key === "m") this.toggleMusic();
                 else if (event.key === "1") this.load("#title-screen-template");
                 else if (event.key === "2") this.load("#main-menu-template");
+                else if (event.key === "3") this.load("#game-mode-screen-template");
                 else if (event.key === "r") this.reload();
                 else if (event.key === "Escape") this.quit();
                 break;

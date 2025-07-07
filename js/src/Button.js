@@ -31,6 +31,9 @@ var Button = (function () {
             if (e.target.dataset.successSound) {
                 new Audio(App.config.button.successSound).play();
             }
+            else if (e.target.dataset.cancelSound) {
+                new Audio(App.config.button.cancelSound).play();
+            }
             else if (e.target.dataset.errorSound) {
                 new Audio(App.config.button.errorSound).play();
             }
